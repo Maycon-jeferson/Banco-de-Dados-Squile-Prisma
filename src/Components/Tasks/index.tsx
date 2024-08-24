@@ -1,23 +1,25 @@
-
-import { Text, View, StyleSheet, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import { prismaClient } from '../../services/db'
 import { TaskList } from './TaskList'
 
-export function Tasks() {
+// Componente que renderiza a lista de tarefas
+export function Tasks({ filter }: { filter: boolean }) {
 
-    const tasks = prismaClient.task.useFindMany()
+    // Busca as tarefas no banco de dados, filtrando por status de conclusão
+    const tasks = prismaClient.task.useFindMany({
+      where:{
+        completed: filter
+      }
+    })
 
     return (
       <>
+        {/* FlatList para renderizar a lista de tarefas */}
         <FlatList
-            data={tasks}
-            keyExtractor={(item)=> String(item.id)}
-            renderItem={ ({ item }) => <TaskList data={item}/> }
+            data={tasks} // Dados das tarefas
+            keyExtractor={(item)=> String(item.id)} // Chave única para cada item da lista
+            renderItem={ ({ item }) => <TaskList data={item}/> } // Renderiza cada tarefa usando o componente TaskList
         />
       </>
     )
 }
-
-const style = StyleSheet.create({
-
-})
