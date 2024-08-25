@@ -32,7 +32,7 @@ export function FormTask() {
       <View style={styles.container}>
         {/* Campo de entrada de texto para a nova tarefa */}
         <TextInput
-          placeholder='Next TASK'
+          placeholder='Digite aqui o nome da sua task!'
           value={task} 
           onChangeText={setTask} 
           style={styles.input} 
@@ -40,8 +40,7 @@ export function FormTask() {
 
         {/* Botão para cadastrar a nova tarefa */}
         <Pressable style={styles.button} onPress={handleNewTask}>
-          <Text style={styles.buttonText}>Cadastrar</Text>
-          <Ionicons name='add' size={24} color={"#fff"}/>
+          <Ionicons name='add-circle' size={24} color={"#fff"}/>
         </Pressable>
       </View>
     );
@@ -51,6 +50,9 @@ export function FormTask() {
 const styles = StyleSheet.create({
   // Estilo do container principal
   container:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 8, 
     marginTop: 8,
     marginBottom: 8,
   },
@@ -58,28 +60,19 @@ const styles = StyleSheet.create({
   // Estilo do campo de entrada de texto
   input:{
     backgroundColor: "#f1f5f9", 
-    padding: 8, 
-    borderRadius: 4, 
-    marginTop: 8,
-    marginBottom: 8 
+    borderRadius: 4,
+    width: 280,
+    height: 50,
   },
 
   // Estilo do botão de cadastro
   button:{
-    backgroundColor: "#22c55e", 
+    backgroundColor: "#21305c", 
     borderRadius: 4,
-    alignItems: 'center', 
     justifyContent: 'center',
-    flexDirection: 'row',
-    padding: 6, 
-    gap: 8 
-  },
-
-  // Estilo do texto no botão
-  buttonText:{
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: '500' 
+    alignItems: 'center',
+    width: 50,
+    height: 50,
   }
 })
 

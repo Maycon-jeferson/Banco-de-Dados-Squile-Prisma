@@ -23,7 +23,7 @@ export function Action({ filter, setFilter }: Props) {
       <View style={style.buttons}>
         {/* Botão para exibir as tarefas abertas */}
         <Pressable 
-          style={[style.button, !status && {backgroundColor:'#22c55e'}]} 
+          style={[style.button, !status && style.selectButton]} 
           onPress={() => handleAction(false)}
         > 
             <Text style={style.buttonText}>Abertas</Text>
@@ -31,7 +31,7 @@ export function Action({ filter, setFilter }: Props) {
 
         {/* Botão para exibir as tarefas finalizadas */}
         <Pressable 
-          style={[style.button, status && {backgroundColor:'#22c55e'}]} 
+          style={[style.button, status && style.selectButton]} 
           onPress={() => handleAction(true)}
         > 
             <Text style={style.buttonText}>Finalizadas</Text>
@@ -44,9 +44,10 @@ export function Action({ filter, setFilter }: Props) {
 const style = StyleSheet.create({
     // Estilo do container que envolve os botões
     buttons:{
-        flexDirection: "row", 
+        flexDirection: "row",
+        justifyContent: 'space-around', 
         gap: 8, 
-        marginTop: 14, 
+        marginTop: 12, 
         marginBottom: 8
     },
 
@@ -55,11 +56,19 @@ const style = StyleSheet.create({
         padding: 4, 
         paddingRight: 8, 
         paddingLeft: 8, 
-        borderRadius: 4 
     },
 
     // Estilo do texto dentro dos botões
     buttonText:{
         color: '#fff'
+    },
+     
+    selectButton: {
+        borderBottomColor: '#fff',
+        borderStyle: 'solid',
+        borderBottomWidth: 3
     }
 })
+
+
+                

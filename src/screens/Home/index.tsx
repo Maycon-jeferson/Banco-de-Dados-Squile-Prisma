@@ -1,4 +1,4 @@
-import { Text, StyleSheet, SafeAreaView, StatusBar } from "react-native"
+import { Text, StyleSheet, SafeAreaView, StatusBar,View } from "react-native"
 import { FormTask } from "../../Components/Form";
 import { Tasks } from "../../Components/Tasks";
 import { useState } from "react";
@@ -13,15 +13,17 @@ export function Home(){
     return(
       <>
         {/* Configuração da StatusBar com cor de fundo e estilo do texto */}
-        <StatusBar backgroundColor={"#0f172a"} barStyle={"light-content"}/>
+        <StatusBar backgroundColor={"#21305c"} barStyle={"light-content"}/>
 
         {/* SafeAreaView garante que o conteúdo esteja dentro das margens seguras da tela */}
         <SafeAreaView style={styles.container}>
-          {/* Título da tela */}
-          <Text style={styles.tittle}>NOTAS</Text>
-          
-          {/* Texto descritivo abaixo do título */}
-          <Text style={styles.text}>Crie notas</Text>
+          <View style={styles.textTittle}>
+            {/* Título da tela */}
+            <Text style={styles.tittle}>NOTAS</Text>
+            
+            {/* Texto descritivo abaixo do título */}
+            <Text style={styles.text}>Crie adicione e altere notas e to do list</Text>
+          </View>
 
           {/* Componente de formulário para criar novas tarefas */}
           <FormTask/>
@@ -58,5 +60,10 @@ const styles = StyleSheet.create({
     // Estilo para o texto descritivo
     text:{
       color: "#e4e4e7",
+    },
+    
+    textTittle:{
+      flexDirection: "column",
+      alignItems: "center"
     }
 });

@@ -41,13 +41,13 @@ export function TaskList( {data}: Props ) {
         <View style={style.button}>
             {/* Botão de deletar tarefa */}
             <Pressable style={style.buttonDelete} onPress={handleDeletetask}>
-                <Ionicons name='trash-outline' size={16} color={"#fff"}/>
+                <Ionicons name='trash-bin' size={16} color={"#fff"}/>
             </Pressable>
             
             {/* Botão de completar tarefa (aparece apenas se a tarefa não estiver completa) */}
             {!data.completed && (
                  <Pressable style={style.buttoncompleted} onPress={handleUpdateStatus}>
-                 <Ionicons name='checkbox-outline' size={16} color={"#fff"}/>
+                 <Ionicons name='checkbox-sharp' size={16} color={"#fff"}/>
              </Pressable>
             )}
         </View>
@@ -59,35 +59,41 @@ export function TaskList( {data}: Props ) {
 const style = StyleSheet.create({
     // Estilo do container da tarefa
     container:{
-        backgroundColor: "#64748b", 
-        marginBottom: 30, 
-        padding: 14, 
-        borderRadius: 4 
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: "#21305c", 
+        marginBottom: 30,
+        padding: 6, 
+        borderRadius: 4
     },
     // Estilo do texto (nome da tarefa)
     text:{
-        fontWeight: '500', 
-        color: "#fff" 
+        fontWeight: '500',
+        color: "#fff",
+        width: 250,
     },
     // Estilo do container dos botões
     button:{
-        position:'absolute', 
-        bottom: -18,
-        flexDirection: 'row', 
-        right: 0, 
-        zIndex: 99, 
-        gap: 8
+        flexDirection: 'row',
+        margin: 8,
+        gap: 8,
+        width: 50,
     },
     // Estilo do botão de deletar
     buttonDelete:{
-        backgroundColor: '#ef4444', 
         padding: 6, 
-        borderRadius: 99, 
+        borderRadius: 99,
+        borderColor: '#fff',
+        borderStyle: 'solid',
+        borderWidth: 2
     },
     // Estilo do botão de completar tarefa
     buttoncompleted:{
-        backgroundColor: '#22c55e', 
         padding: 6, 
-        borderRadius: 99, 
+        borderRadius: 99,
+        borderColor: '#fff',
+        borderStyle: 'solid',
+        borderWidth: 2
     }
 })
